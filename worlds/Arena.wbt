@@ -1,0 +1,140 @@
+#VRML_SIM R2025a utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Asphalt.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/CorrugatedPlates.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation 0.04656881182449439 0.9904307387896937 0.12991650174537614 0.5467043349958571
+  position -7.788595963111217 -0.43354818053770583 5.639223769733546
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 3 3
+  floorAppearance Asphalt {
+  }
+  wallAppearance CorrugatedPlates {
+  }
+}
+TurtleBot3Burger {
+  hidden position_0_0 5.062847919083676
+  hidden position_0_1 4.439301528022421
+  hidden position_0_2 37.74647231206572
+  hidden position2_0_2 1.077415211972177
+  hidden position3_0_2 0.027639261387368746
+  hidden linearVelocity_0 0.04920887532141981 0.00535680051232145 -5.333451844806639e-09
+  hidden angularVelocity_0 2.8279282960487465e-06 -1.1264435481807829e-08 0.011494984966584533
+  hidden position_1_0 52.43904000000003
+  hidden position_1_1 52.74624000000003
+  hidden rotation_2 -0.34844842301138074 0.6627897363729934 0.6627921709401067 2.4710111362490634
+  hidden translation_3 -0.08231607703018926 -0.009999999999999995 -0.028233712988860665
+  hidden rotation_3 -0.23569897540463944 0.6871835722168286 0.6871860963876687 2.6786457902545555
+  hidden rotation_8 0 1 0 3.4920519190836763
+  hidden rotation_9 -0.13612263245682754 1.853935622001669e-06 0.990691994986124 3.141595465633321
+  hidden rotation_10 0.05334323607306105 0.9974828779006217 0.04671624407362969 1.0793257374824206
+  translation 0.15632234230121686 0.01095557057664693 -0.00024774033812306057
+  rotation 0.0022397480186313237 -0.03984198594192511 0.999203482622542 0.11638900389582606
+  controller "keyboard_controller"
+}
+Solid {
+  translation 0.391084 0.332741 0.1
+  rotation 0.5773509358560258 -0.577349935856137 0.577349935856137 -2.094395307179586
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Box {
+        size 0.1 0.2 1
+      }
+    }
+  ]
+  name "wall_1"
+  boundingObject Box {
+    size 0.1 0.2 1
+  }
+}
+Solid {
+  translation -0.147966 1.01722 0.5
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Box {
+        size 0.1 0.2 1
+      }
+    }
+  ]
+  name "wall_2"
+  boundingObject Box {
+    size 0.1 0.2 1
+  }
+}
+Solid {
+  translation 0.0375516 -1.39505 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Box {
+        size 0.1 0.2 0.2
+      }
+    }
+  ]
+  name "wall_3"
+  boundingObject Box {
+    size 0.1 0.2 0.2
+  }
+}
+Solid {
+  translation -0.23629 -1.39294 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Box {
+        size 0.1 0.2 0.2
+      }
+    }
+  ]
+  name "wall_3(1)"
+  boundingObject Box {
+    size 0.1 0.2 0.2
+  }
+}
+Solid {
+  translation 0.284267 -0.171343 0.1
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.1
+      }
+    }
+  ]
+  name "Column_1"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.1
+  }
+}
