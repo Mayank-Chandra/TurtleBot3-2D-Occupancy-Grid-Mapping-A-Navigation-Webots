@@ -79,19 +79,6 @@ velocity into differential wheel speeds. A front-facing LIDAR arc is checked eve
 step; if anything enters the safety distance, tracking is overridden by a stop-and
 -pivot maneuver until the arc clears.
 
-## Known limitations / honest scope
-
-- **No real localization.** Pose comes from the simulator's privileged `Supervisor`
-  API, not from odometry or sensor-based estimation. This sidesteps the core
-  difficulty of real SLAM (drift, uncertainty, loop closure).
-- **No true local planner.** Obstacle "avoidance" is a binary stop-and-pivot
-  reaction when something enters a safety radius, not a velocity-space local planner
-  (e.g. Dynamic Window Approach) that scores candidate trajectories for both goal
-  progress and clearance. It handles a single static unexpected obstacle reasonably
-  but doesn't smoothly reroute around it.
-- **Single robot only.** No multi-robot coordination in this project (see
-  [related project] for distributed MPC formation control across multiple robots).
-
 ## Possible extensions
 
 - Replace ground-truth pose with real odometry + a particle filter or EKF for actual
