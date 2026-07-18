@@ -76,21 +76,12 @@ else:
     print("Warning: No waypoints found. Run pathfinder.py first.")
 
 while robot.step(timestep) != -1:
-    # 1. Get exact ground truth position and heading from Webots
-    # Use getPosition() instead of the translation field -- it returns the
-    # FULL global/world-resolved position, whereas the translation field is
-    # only relative to the immediate parent node. This was causing the
-    # plotted position (pathfinder.py) to disagree with the actual pose
-    # shown in the Webots 3D view.
+ 
     pos = robot_node.getPosition()
     x = pos[0]
     y = pos[1]
 
-    # Calculate exact heading angle theta from the orientation matrix.
-    # getOrientation() returns the 3x3 body->world rotation matrix, row-major:
-    # [m00, m01, m02, m10, m11, m12, m20, m21, m22]. The robot's forward
-    # (local +X) direction in world coords is the matrix's FIRST COLUMN,
-    # i.e. (m00, m10) = (rot_matrix[0], rot_matrix[3]) -- NOT the first row.
+   
     rot_matrix = robot_node.getOrientation()
     theta = math.atan2(rot_matrix[3], rot_matrix[0])
 
