@@ -5,13 +5,18 @@ EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/project
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/objects/floors/protos/RectangleArena.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Asphalt.proto"
 EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/CorrugatedPlates.proto"
-EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/TurtleBot3Burger.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/devices/robotis/protos/RobotisLds01.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/TireRubber.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/Pcb.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/RoughPolymer.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/MattePaint.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/appearances/protos/BrushedAluminium.proto"
 
 WorldInfo {
 }
 Viewpoint {
-  orientation 0.130607526437455 0.9747310189569799 -0.18122117624874018 0.6630167514739566
-  position -5.114574848985906 0.8319688889936322 4.606792394758883
+  orientation 0.03426252764642518 0.9993261588448129 0.013164628659769495 1.3145425812273603
+  position -2.3756276323083307 -0.7581363925400574 10.839459606567273
 }
 TexturedBackground {
 }
@@ -21,34 +26,340 @@ RectangleArena {
   floorSize 3 3
   floorAppearance Asphalt {
   }
+  wallHeight 0.8
   wallAppearance CorrugatedPlates {
   }
 }
-TurtleBot3Burger {
-  hidden position_0_0 998.5455517109391
-  hidden position_0_1 1047.6794949035268
-  hidden position_0_2 -253.7038365323135
-  hidden position2_0_2 -0.7942437331723573
-  hidden position3_0_2 -75.75256046846735
-  hidden linearVelocity_0 -3.67319123586053e-16 2.393361523468886e-16 -5.938609979156616e-17
-  hidden angularVelocity_0 3.1039165595314624e-15 -6.591968626252501e-16 1.4627539041594246e-15
-  hidden position_1_0 52.43904000000003
-  hidden position_1_1 52.74624000000003
-  hidden rotation_2 -0.3484484230113808 0.6627897363729934 0.6627921709401067 2.4710111362490634
-  hidden translation_3 -0.08231607703018926 -0.009999999999999957 -0.02823371298886066
-  hidden rotation_3 -0.23569897540463944 0.6871835722168286 0.6871860963876687 2.6786457902545555
-  hidden rotation_8 0 0.9999999999999999 0 4.231477176564432
-  hidden linearVelocity_8 7.396952594909536e-17 -1.0445557314974811e-17 9.743771950330905e-16
-  hidden angularVelocity_8 4.2340272672158294e-15 -1.54795751192875e-14 9.59307499605142e-16
-  hidden rotation_9 -0.020828856397190756 1.6792005206110563e-06 0.9997830558367977 3.1415958749312023
-  hidden linearVelocity_9 -4.4583207771801145e-18 -1.1677700170212214e-16 1.3947674505451248e-15
-  hidden angularVelocity_9 -8.36362861860424e-16 1.1384889532819986e-14 -6.090206978372895e-16
-  hidden rotation_10 -0.8919593344691442 -0.3199076725287198 0.3194802446327761 2.3139426688968814
-  hidden linearVelocity_10 2.9355019570433133e-16 -3.6680333948270575e-16 -1.0855506456752922e-13
-  hidden angularVelocity_10 9.169979253692549e-14 7.338743204912228e-14 -3.6201501668435446e-29
-  translation 0.6479289155035846 -0.6724572175398752 -0.00024773920719101117
-  rotation 0.0023268160505322275 0.002781434679533217 0.9999934247524783 -1.3890711427111349
-  controller "turtlebot3_keyboard"
+Robot {
+  translation -1.1505459662512167 1.077865408706694 -0.0002474462851221118
+  rotation 0.00296017310189283 -0.002276495924308159 0.9999930274464485 1.8342275329596782
+  children [
+    Display {
+      name "map_display"
+      width 166
+      height 166
+    }
+    Pose {
+      translation -0.03 0 0.153
+      children [
+        RobotisLds01 {
+        }
+      ]
+    }
+    DEF RIGHT_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        position 13585.350704375795
+        axis 0 1 0
+        anchor 0 -0.08 0.033
+      }
+      device [
+        RotationalMotor {
+          name "right wheel motor"
+          consumptionFactor -0.001
+          maxVelocity 6.67
+        }
+        PositionSensor {
+          name "right wheel sensor"
+          resolution 0.00628
+        }
+      ]
+      endPoint Solid {
+        translation 0 -0.08 0.033
+        rotation -1.161295971193883e-16 -1 1.2103754428682617e-16 0.46672574647166665
+        children [
+          DEF RIGHT_WHEEL Pose {
+            rotation 1 0 0 -1.5708003061004252
+            children [
+              DEF WHEEL_SHAPE Group {
+                children [
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 1
+                      metalness 0
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/wheel_shape.obj"
+                      ]
+                    }
+                  }
+                  Shape {
+                    appearance PBRAppearance {
+                      baseColor 0 0 0
+                      roughness 1
+                      metalness 0
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/inner_wheel.obj"
+                      ]
+                    }
+                  }
+                  Shape {
+                    appearance TireRubber {
+                      textureTransform TextureTransform {
+                        scale 1.7 0.76
+                        translation 0 0.164
+                      }
+                      type "bike"
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/tire.obj"
+                      ]
+                    }
+                  }
+                  Shape {
+                    appearance PBRAppearance {
+                    }
+                    geometry Mesh {
+                      url [
+                        "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/wheel_support.obj"
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+        name "right wheel"
+        boundingObject Pose {
+          rotation 1 0 0 -1.570796
+          children [
+            Cylinder {
+              height 0.018
+              radius 0.033
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.028499
+          centerOfMass [
+            0 0 0
+          ]
+        }
+        linearVelocity -1.4957908356967524e-07 3.485489940644477e-08 -7.768645950093074e-08
+        angularVelocity -2.3221689901262858e-06 -1.4692471408052639e-07 -1.6774092574511008e-06
+      }
+    }
+    DEF LEFT_JOINT HingeJoint {
+      jointParameters HingeJointParameters {
+        position 21325.974714184173
+        axis 0 1 0
+        anchor 0 0.08 0.033
+      }
+      device [
+        RotationalMotor {
+          name "left wheel motor"
+          consumptionFactor -0.001
+          maxVelocity 6.67
+        }
+        PositionSensor {
+          name "left wheel sensor"
+          resolution 0.00628
+        }
+      ]
+      endPoint Solid {
+        translation 0 0.08 0.033
+        rotation -0.934654513249165 9.527904002307127e-07 -0.35555722586112454 3.14158840804391
+        children [
+          DEF RIGHT_WHEEL Pose {
+            rotation 1 0 0 -1.5708003061004252
+            children [
+              USE WHEEL_SHAPE
+            ]
+          }
+        ]
+        name "left wheel"
+        boundingObject Pose {
+          rotation 1 0 0 -1.570796
+          children [
+            Cylinder {
+              height 0.018
+              radius 0.033
+            }
+          ]
+        }
+        physics Physics {
+          density -1
+          mass 0.028499
+          centerOfMass [
+            0 0 0
+          ]
+        }
+        linearVelocity -2.2811616052953832e-07 3.260618856270924e-07 -5.175157571908468e-09
+        angularVelocity -2.3413469050821424e-06 -1.5209683691296986e-07 -1.6774094841273346e-06
+      }
+    }
+    DEF CASTER_JOINT BallJoint {
+      jointParameters BallJointParameters {
+        position -5242.843166619778
+        anchor -0.081 0 0.004
+      }
+      endPoint Solid {
+        translation -0.08105971136247914 -6.0038493254310765e-05 0.004110240125718848
+        rotation 0.16003659058946315 -0.9606980445348657 0.22682053897164076 -0.8267669480404978
+        children [
+          Shape {
+            appearance PBRAppearance {
+            }
+            geometry DEF CASTER_SPHERE Sphere {
+              radius 0.004
+              subdivision 2
+            }
+          }
+        ]
+        boundingObject USE CASTER_SPHERE
+        physics Physics {
+        }
+        linearVelocity -1.6093888780837155e-05 -2.749846467976523e-05 1.6578514955774362e-07
+        angularVelocity 0.006771089452249943 -0.004207403320377671 -0.36377480753351404
+      }
+    }
+    DEF BODY Pose {
+      translation 0 0 0.01
+      children [
+        DEF MOTORS Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 0
+            roughness 0.8
+            metalness 0
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/motors.obj"
+            ]
+          }
+        }
+        DEF CARDS Shape {
+          appearance Pcb {
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/cards.obj"
+            ]
+          }
+        }
+        DEF HOLDERS Shape {
+          appearance DEF MAIN_APP RoughPolymer {
+            baseColor 0 0 0
+            textureTransform TextureTransform {
+              scale 3 3
+            }
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/holders.obj"
+            ]
+          }
+        }
+        DEF BODY_FLOOR_0 Shape {
+          appearance USE MAIN_APP
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/body_floor.obj"
+            ]
+          }
+        }
+        DEF BODY_FLOOR_1 Pose {
+          translation 0 0 0.0376
+          children [
+            USE BODY_FLOOR_0
+          ]
+        }
+        DEF BODY_FLOOR_2 Pose {
+          translation 0 0 0.085
+          children [
+            USE BODY_FLOOR_0
+          ]
+        }
+        DEF BODY_FLOOR_3 Pose {
+          translation 0 0 0.1325
+          children [
+            USE BODY_FLOOR_0
+          ]
+        }
+        DEF BATTERY Shape {
+          appearance MattePaint {
+            baseColor 0.054902 0.121569 0.356863
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/battery.obj"
+            ]
+          }
+        }
+        DEF SCREWS Shape {
+          appearance PBRAppearance {
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/screws.obj"
+            ]
+          }
+        }
+        DEF BARS Shape {
+          appearance BrushedAluminium {
+            textureTransform TextureTransform {
+              scale 3 2
+            }
+          }
+          geometry Mesh {
+            url [
+              "https://raw.githubusercontent.com/cyberbotics/webots/R2025a/projects/robots/robotis/turtlebot/protos/meshes/bars.obj"
+            ]
+          }
+        }
+      ]
+    }
+    Accelerometer {
+      translation -0.032 0 0.078
+    }
+    Gyro {
+      translation -0.032 0 0.078
+    }
+    Compass {
+      translation -0.032 0 0.078
+    }
+  ]
+  name "TurtleBot3Burger"
+  boundingObject Group {
+    children [
+      Pose {
+        translation -0.032 0 0.08
+        children [
+          Box {
+            size 0.097 0.137 0.1425
+          }
+        ]
+      }
+      Pose {
+        translation -0.032 0 0.08
+        children [
+          Box {
+            size 0.135 0.095 0.143
+          }
+        ]
+      }
+    ]
+  }
+  physics Physics {
+    density -1
+    mass 0.825735
+    centerOfMass [
+      -0.035 0 0.03
+    ]
+  }
+  controller "turtlebot3_path_follower"
+  controllerArgs [
+    ""
+  ]
+  supervisor TRUE
+  linearVelocity -2.338273593131119e-07 2.2452338178521022e-07 3.361843189717974e-08
+  angularVelocity -2.322194659109252e-06 -1.4750120117780665e-07 -1.6773900184521636e-06
 }
 Solid {
   translation 0.391084 0.332741 0.1
@@ -88,7 +399,7 @@ Solid {
   }
 }
 Solid {
-  translation 0.0375516 -1.39505 0.1
+  translation 0.259692 -0.861265 0.1
   children [
     Shape {
       appearance PBRAppearance {
@@ -124,7 +435,7 @@ Solid {
   }
 }
 Solid {
-  translation 0.261287 -0.613116 0.1
+  translation 0.875615 -1.13203 0.1
   children [
     Shape {
       appearance PBRAppearance {
@@ -137,6 +448,24 @@ Solid {
     }
   ]
   name "wall_3(2)"
+  boundingObject Box {
+    size 0.1 0.2 0.2
+  }
+}
+Solid {
+  translation 0.923789 -0.431245 0.1
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Box {
+        size 0.1 0.2 0.2
+      }
+    }
+  ]
+  name "wall_3(3)"
   boundingObject Box {
     size 0.1 0.2 0.2
   }
@@ -163,7 +492,49 @@ Solid {
   }
 }
 Solid {
-  translation -0.691599 -0.166052 0.1
+  translation 0.951855 1.03477 0.1
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.1
+      }
+    }
+  ]
+  name "Column_1(3)"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.1
+  }
+}
+Solid {
+  translation 0.488552 0.73692 0.1
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.1
+      }
+    }
+  ]
+  name "Column_1(4)"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.1
+  }
+}
+Solid {
+  translation -0.72931 -0.832518 0.1
   rotation 1 0 0 4.692820414042842e-06
   children [
     Shape {
@@ -178,6 +549,27 @@ Solid {
     }
   ]
   name "Column_1(1)"
+  boundingObject Cylinder {
+    height 0.2
+    radius 0.1
+  }
+}
+Solid {
+  translation -0.743488 0.560166 0.1
+  rotation 1 0 0 4.692820414042842e-06
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.5 0.5 0.5
+        roughness 0.8
+      }
+      geometry Cylinder {
+        height 0.2
+        radius 0.1
+      }
+    }
+  ]
+  name "Column_1(2)"
   boundingObject Cylinder {
     height 0.2
     radius 0.1
