@@ -97,10 +97,11 @@ step; if anything enters the safety distance, tracking is overridden by a stop-a
 ## Setup
 
 1. Open `worlds/Arena.wbt` in Webots and press play.
-2. Set the robot's controller to `turtlebot3_keyboard.py` and drive it around the
+2. Change the directory for the waypoints and LiDAR map.
+3. Set the robot's controller to `turtlebot3_keyboard.py` and drive it around the
    arena with W/A/S/D to build the map. Press `P` or hold `P` to save `webots_map.png`.
-3. Switch the controller to `turtlebot3_path_follower.py` (or
+4. Switch the controller to `turtlebot3_path_follower.py` (or
    `reactive_path_follower.py`).
-4. Run `python3 pathfinder.py` (or `dynamics_pathfinder.py` for a one-shot run),
+5. Run `python3 pathfinder.py` (or `dynamics_pathfinder.py` for a one-shot run),
    click a goal on the displayed map, and close the window to let the robot drive
    there.
