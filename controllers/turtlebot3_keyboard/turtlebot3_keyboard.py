@@ -15,10 +15,7 @@ map_log_odds = np.zeros((GRID_SIZE, GRID_SIZE))
 L_FREE = -0.15
 L_OCCUPIED = 1.5
 
-# --- Display follow-camera ---
-# Set to an integer N to show only an N x N cell window centered on the
-# robot (it pans/zooms with the robot as it drives). Set to None to show
-# the entire GRID_SIZE x GRID_SIZE map instead (old behavior).
+
 FOLLOW_WINDOW_CELLS = 150  # 150 cells * 0.02 m/cell = 3m x 3m visible area
 
 
@@ -55,9 +52,7 @@ def get_line_cells(x0, y0, x1, y1):
 robot = Supervisor()
 timestep = int(robot.getBasicTimeStep())
 
-# Ground-truth pose access (same technique as turtlebot3_path_follower).
-# Requires this Robot node's "supervisor" field to be TRUE in the scene tree
-# -- it already is, since the path-follower controller uses it successfully.
+
 robot_node = robot.getSelf()
 trans_field = robot_node.getField('translation')
 
@@ -93,11 +88,7 @@ print('--GROUND-TRUTH (SUPERVISOR) POSE Controller--')
 print('Controls: W/A/S/D to drive | P to save map | M to toggle mapping ON/OFF')
 
 while robot.step(timestep) != -1:
-    # 1. Read exact ground-truth position and heading straight from Webots.
-    # This is the SAME technique turtlebot3_path_follower.py uses, so the
-    # SLAM map and the live navigation position now live in one consistent
-    # world frame -- no odometry drift, no initial-pose guessing, and no
-    # more "map dot in the wrong place" mismatch between the two scripts.
+   
     pos = trans_field.getSFVec3f()
     x = pos[0]
     y = pos[1]
@@ -157,10 +148,7 @@ while robot.step(timestep) != -1:
     # Convert probability to Grayscale (Unexplored = Grey, Free = White, Wall = Black)
     gray_map = ((1.0 - prob_map) * 255).astype(np.uint8)
     gray_map = np.flipud(gray_map.T)  # gray_map[mx, my] -> display[row, col]
-    # This transform means: display_row = GRID_SIZE - 1 - my, display_col = mx
-
-    # --- DRAW THE MAP & ROBOT TO THE WEBOTS DISPLAY ---
-    # Robot's position in the same (row, col) convention as gray_map above.
+   
     rob_row_disp = GRID_SIZE - 1 - robot_my
     rob_col_disp = robot_mx
 
@@ -195,9 +183,6 @@ while robot.step(timestep) != -1:
                     cy_p = np.clip(rob_row_win + dy_offset, 0, win_h - 1)
                     display_img[cy_p, cx_p] = [255, 0, 0]
 
-        # Resize the (possibly cropped) window up to the display's actual
-        # pixel resolution, so the follow-window fills the whole display
-        # and appears "zoomed in" rather than a small patch in the corner.
         if display_img.shape[1] != disp_w or display_img.shape[0] != disp_h:
             im = Image.fromarray(display_img)
             im = im.resize((disp_w, disp_h), Image.NEAREST)
