@@ -36,7 +36,7 @@ following with a reactive LIDAR safety layer for unmapped obstacles.
 ┌─────────────────────┐        TCP socket         ┌──────────────────────┐
 │ turtlebot3_keyboard  │  (ground-truth position)  │   pathfinder.py /     │
 │  (manual mapping)     │ ─────────────────────────▶│  dynamics_pathfinder │
-│  - drive w/ WASD      │                           │  - A* global planner │
+│  - drive    WASD      │                           │  - A* global planner │
 │  - log-odds grid      │                           │  - click-to-set goal │
 │  - saves webots_map   │                           │  - exports waypoints │
 └──────────┬────────────┘                           └───────────┬──────────┘
