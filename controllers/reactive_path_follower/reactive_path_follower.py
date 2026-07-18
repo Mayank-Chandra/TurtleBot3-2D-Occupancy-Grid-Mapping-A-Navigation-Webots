@@ -70,11 +70,7 @@ current_wp_idx = 0
 last_mod_time = 0.0
 
 while robot.step(timestep) != -1:
-    # 1. State Tracking Estimation Updates
-    # Use getPosition()/getOrientation() instead of the translation/rotation
-    # fields — these resolve the FULL global/world transform chain, whereas
-    # the raw fields are only relative to the immediate parent node. This is
-    # what was causing the Webots view vs. live-plot position mismatch.
+    
     pos = robot_node.getPosition()
     x, y = pos[0], pos[1]
     rot_matrix = robot_node.getOrientation()
