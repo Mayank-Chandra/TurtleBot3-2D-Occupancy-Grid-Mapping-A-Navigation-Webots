@@ -94,11 +94,11 @@ step; if anything enters the safety distance, tracking is overridden by a stop-a
 - Webots R2025a (or compatible)
 - Python 3, `numpy`, `matplotlib`, `Pillow`
 
-## Usage
+## Setup
 
 1. Open `worlds/Arena.wbt` in Webots and press play.
 2. Set the robot's controller to `turtlebot3_keyboard.py` and drive it around the
-   arena with W/A/S/D to build the map. Press `P` to save `webots_map.png`.
+   arena with W/A/S/D to build the map. Press `P` or hold `P` to save `webots_map.png`.
 3. Switch the controller to `turtlebot3_path_follower.py` (or
    `reactive_path_follower.py`).
 4. Run `python3 pathfinder.py` (or `dynamics_pathfinder.py` for a one-shot run),
