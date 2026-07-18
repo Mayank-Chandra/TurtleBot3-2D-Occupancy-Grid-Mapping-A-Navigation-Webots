@@ -10,8 +10,8 @@ following with a reactive LIDAR safety layer for unmapped obstacles.
 > API (`getPosition()` / `getOrientation()`) rather than estimating pose from noisy
 > odometry or sensor fusion. That means it is **occupancy-grid mapping with known
 > localization**, not full SLAM — there's no odometry drift correction, particle
-> filter/EKF pose estimation, scan matching, or loop closure. I'm calling this out
-> explicitly rather than overclaiming; the mapping, planning, and control components
+> filter/EKF pose estimation, scan matching, or loop closure.
+> the mapping, planning, and control components
 > below are implemented and working as described.
 
 ## What it does
