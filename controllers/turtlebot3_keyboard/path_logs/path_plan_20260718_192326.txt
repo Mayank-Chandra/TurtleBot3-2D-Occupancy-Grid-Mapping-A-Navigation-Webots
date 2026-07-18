@@ -1,7 +1,0 @@
-Run timestamp: 20260718_192326
-Start (world m): x=-1.1500, y=1.0700
-Start (map cell): (67, 71)
-Goal  (world m): x=1.1700, y=0.0100
-Goal  (map cell): (183, 124)
-Waypoints exported: 4
-Waypoints file: /home/mayank-linux/Desktop/Projects/Custom-2D-Lidar-SLAM-MPC-Navigation-Stack/controllers/turtlebot3_keyboard/waypoints.txt

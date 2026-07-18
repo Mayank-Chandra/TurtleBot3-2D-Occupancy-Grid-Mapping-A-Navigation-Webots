@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.pyo
+.DS_Store
+controllers/turtlebot3_keyboard/path_logs/
+controllers/turtlebot3_keyboard/saved_plots/
