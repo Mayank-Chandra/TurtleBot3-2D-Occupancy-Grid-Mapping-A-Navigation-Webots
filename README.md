@@ -1,6 +1,6 @@
 # TurtleBot3 2D Occupancy-Grid Mapping & A* Navigation (Webots)
 
-![me](https://github.com/Mayank-Chandra/Custom-2D-Lidar-SLAM-MPC-Navigation-Stack/blob/main/MPC_formation_12-ezgif.com-video-to-gif-converter.gif)
+![me](https://github.com/Mayank-Chandra/TurtleBot3-2D-Occupancy-Grid-Mapping-A-Navigation-Webots/blob/main/MPC_formation_12-ezgif.com-video-to-gif-converter.gif)
 
 A single-robot navigation stack built in Webots: manual LIDAR-based occupancy-grid
 mapping, A* global path planning over the built map, and closed-loop waypoint
