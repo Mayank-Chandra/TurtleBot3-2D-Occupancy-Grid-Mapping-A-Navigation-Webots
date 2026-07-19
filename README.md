@@ -14,7 +14,7 @@ following with a reactive LIDAR safety layer for unmapped obstacles.
 > the mapping, planning, and control components
 > below are implemented and working as described.
 
-## What it does
+## Basic Explanations
 
 1. **Manual mapping** — drive the robot around the arena with the keyboard while a
    log-odds occupancy grid is built from LIDAR returns (Bresenham ray tracing marks
@@ -34,19 +34,19 @@ following with a reactive LIDAR safety layer for unmapped obstacles.
 
 ```
 ┌─────────────────────┐        TCP socket         ┌──────────────────────┐
-│ turtlebot3_keyboard  │  (ground-truth position)  │   pathfinder.py /     │
-│  (manual mapping)     │ ─────────────────────────▶│  dynamics_pathfinder │
-│  - drive    WASD      │                           │  - A* global planner │
-│  - log-odds grid      │                           │  - click-to-set goal │
-│  - saves webots_map   │                           │  - exports waypoints │
-└──────────┬────────────┘                           └───────────┬──────────┘
-           │ webots_map.png                                     │ waypoints.txt
-           ▼                                                    ▼
-                    (loaded by pathfinder.py)      ┌──────────────────────────┐
-                                                    │ turtlebot3_path_follower  │
-                                                    │  / reactive_path_follower │
-                                                    │  - waypoint tracking      │
-                                                    │  - LIDAR safety override  │
+│ turtlebot3_keyboard │  (ground-truth position)  │   pathfinder.py /    │
+│  (manual mapping)   │ ─────────────────────────▶│  dynamics_pathfinder │
+│  - drive    WASD    │                           │  - A* global planner │
+│  - log-odds grid    │                           │  - click-to-set goal │
+│  - saves webots_map │                           │  - exports waypoints │
+└──────────┬──────────┘                           └───────────┬──────────┘
+           │ webots_map.png                                   │ waypoints.txt
+           ▼                                                  ▼
+                    (loaded by pathfinder.py)       ┌──────────────────────────┐
+                                                    │ turtlebot3_path_follower │
+                                                    │  / reactive_path_follower│
+                                                    │  - waypoint tracking     │
+                                                    │  - LIDAR safety override │
                                                     └──────────────────────────┘
 ```
 
@@ -59,7 +59,7 @@ following with a reactive LIDAR safety layer for unmapped obstacles.
 | `dynamics_pathfinder.py` | Live-loop version of the planner — repeatedly re-fetches the robot's current position, lets you pick a new goal, plans, and exports waypoints without needing to restart the script. |
 | `turtlebot3_path_follower.py` / `reactive_path_follower.py` | Drives the robot along the exported waypoints using proportional (P) heading and distance control, differential-drive wheel speed mixing, and a front-arc LIDAR check that overrides normal tracking to pivot away from anything unexpectedly close. |
 
-## How it works
+## Working
 
 **Mapping (log-odds occupancy grid):** each LIDAR beam is ray-traced cell-by-cell
 from the sensor to its hit point using Bresenham's line algorithm. Cells along the
