@@ -102,6 +102,6 @@ step; if anything enters the safety distance, tracking is overridden by a stop-a
    arena with W/A/S/D to build the map. Press `P` or hold `P` to save `webots_map.png`.
 4. Switch the controller to `turtlebot3_path_follower.py` (or
    `reactive_path_follower.py`).
-5. Run `python3 dynamics_pathfinder.py`` (or `pathfinder.py` for a one-shot run),
+5. Run `python3 dynamics_pathfinder.py` (or `pathfinder.py` for a one-shot run),
    click a goal on the displayed map, and close the window to let the robot drive
    there.
