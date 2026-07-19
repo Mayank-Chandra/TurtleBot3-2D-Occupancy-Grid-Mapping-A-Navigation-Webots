@@ -14,6 +14,9 @@ following with a reactive LIDAR safety layer for unmapped obstacles.
 > the mapping, planning, and control components
 > below are implemented and working as described.
 
+# LiDAR MAP 
+![me](https://github.com/Mayank-Chandra/TurtleBot3-2D-Occupancy-Grid-Mapping-A-Navigation-Webots/blob/main/path_plan_20260718_193531.png)
+
 ## Basic Explanations
 
 1. **Manual mapping** — drive the robot around the arena with the keyboard while a
